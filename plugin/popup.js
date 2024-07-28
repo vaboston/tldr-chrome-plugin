@@ -20,5 +20,5 @@ async function summarizePage() {
   });
   const data = await response.json();
   console.log('Response received', data);
-  alert(`Résumé: ${data.summary}`);
+  alert(`${data.summary}`);
 }

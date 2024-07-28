@@ -4,6 +4,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const axios = require('axios');
 
+const myprompt = "Resume this text in english";
+
 // Utiliser cors pour accepter les requêtes cross-origin
 app.use(cors());
 // Utiliser bodyParser pour parser les requêtes JSON
@@ -25,7 +27,7 @@ app.post('/summarize', async (req, res) => {
 async function generateSummary(text) {
   const url = 'http://localhost:11434/api/generate';
   const model = 'llama3:8B';
-  const prompt = `Résume ce texte en français : ${text}`;
+  const prompt = myprompt +  text;
 
   const responseStream = await axios.post(url, {
     model,
